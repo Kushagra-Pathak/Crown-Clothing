@@ -1,4 +1,7 @@
 import { useState } from "react";
+import "./sign-up.styles.scss";
+import Button from "../button/button.components";
+import FormInput from "../form-input/form-input.components";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -16,6 +19,7 @@ const SignUp = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log(name, value);
     setFormFields({ ...formFields, [name]: value });
   };
   const resetFormFields = () => {
@@ -41,41 +45,51 @@ const SignUp = () => {
     }
   };
   return (
-    <div>
+    <div className="sign-up-container">
+      <h2>Don't have an Account?</h2>
+      <span>Sign Up Using Email and Password</span>
       <form onSubmit={handleSubmit}>
-        <label>Display Name</label>
-        <input
-          type="text"
-          required
-          onChange={handleChange}
-          name="displayName"
-          value={displayName}
+        <FormInput
+          label="Display Name"
+          inputOptions={{
+            type: "text",
+            required: true,
+            onChange: handleChange,
+            name: "displayName",
+            value: displayName,
+          }}
         />
-        <label>Email</label>
-        <input
-          type="email"
-          required
-          onChange={handleChange}
-          name="email"
-          value={email}
+        <FormInput
+          label="Email"
+          inputOptions={{
+            type: "email",
+            required: true,
+            onChange: handleChange,
+            name: "email",
+            value: email,
+          }}
         />
-        <label>Password</label>
-        <input
-          type="password"
-          required
-          onChange={handleChange}
-          name="password"
-          value={password}
+        <FormInput
+          label="Password"
+          inputOptions={{
+            type: "password",
+            required: true,
+            name: "password",
+            onChange: handleChange,
+            value: password,
+          }}
         />
-        <label>Confirm Password</label>
-        <input
-          type="password"
-          required
-          onChange={handleChange}
-          name="confirmPassword"
-          value={confirmPassword}
+        <FormInput
+          label="Confirm Password"
+          inputOptions={{
+            type: "password",
+            required: true,
+            onChange: handleChange,
+            name: "confirmPassword",
+            value: confirmPassword,
+          }}
         />
-        <button type="submit">Submit</button>
+        <Button type="submit" children="Sign Up" />
       </form>
     </div>
   );
