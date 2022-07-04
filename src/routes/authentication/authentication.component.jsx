@@ -12,8 +12,8 @@ const Authentication = () => {
 export default Authentication;
 
 /* 
-  FOR GOOGLE REDIRECT
-  useEffect(async () => {
+FOR GOOGLE REDIRECT
+useEffect(async () => {
     const response = await getRedirectResult(auth);
     if (response) {
       const userDocRef = await createUserDocumentFromAuth(response.user);
