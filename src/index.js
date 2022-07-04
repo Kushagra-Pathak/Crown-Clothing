@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import { UserProvider } from "./contexts/user.context";
 import { ProductsProvider } from "./contexts/product.context";
-import { CartProvider } from "./contexts/card.context";
+import { CartProvider } from "./contexts/cart.context";
 
 import App from "./App";
 import "./index.scss";
